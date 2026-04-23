@@ -23,7 +23,7 @@ db.exec(`
   )
 `);
 
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const SYSTEM_PROMPT = `Είσαι ένας εξειδικευμένος εκπαιδευτικός βοηθός για φοιτητές πληροφορικής. Βοηθάς με θέματα όπως προγραμματισμός, αλγόριθμοι, βάσεις δεδομένων, δίκτυα. Απαντάς πάντα στα ελληνικά με σαφήνεια και παραδείγματα.`;
 
