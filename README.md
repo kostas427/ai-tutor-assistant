@@ -1,50 +1,62 @@
-# Welcome to your Expo app 👋
+# CS Tutor AI - AI-Integrated Personal Assistant
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Μια mobile εφαρμογή εκπαιδευτικού βοηθού για φοιτητές πληροφορικής, με ενσωμάτωση Τεχνητής Νοημοσύνης μέσω OpenAI API.
 
-## Get started
+## Τεχνολογική Στοίβα
 
-1. Install dependencies
+- **Frontend:** React Native + Expo
+- **Backend:** Node.js + Express
+- **Database:** SQLite (better-sqlite3)
+- **AI API:** OpenAI GPT-3.5-turbo
 
-   ```bash
-   npm install
-   ```
+## Λειτουργικότητα
 
-2. Start the app
+- Chat με AI Tutor εξειδικευμένο σε θέματα πληροφορικής
+- Αποθήκευση ιστορικού συνομιλιών σε SQLite βάση δεδομένων
+- Οργάνωση συνομιλιών σε sessions με αυτόματη δημιουργία τίτλου
+- Accordion UI για εύκολη πλοήγηση στο ιστορικό
 
-   ```bash
-   npx expo start
-   ```
+## Οδηγίες Εγκατάστασης
 
-In the output, you'll find options to open the app in a
+### Προαπαιτούμενα
+- Node.js v18+
+- npm
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+### Frontend (React Native)
 ```bash
-npm run reset-project
+npm install
+npx expo start --web
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Backend (Node.js)
+```bash
+cd backend
+npm install
+```
 
-## Learn more
+Δημιούργησε αρχείο `.env` στον φάκελο backend:
+```
+OPENAI_API_KEY=your_api_key_here
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+node server.js
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Αρχιτεκτονική
 
-## Join the community
+Mobile App (React Native)
+↓
+Node.js REST API (Express)
+↓
+OpenAI GPT-3.5-turbo API
+↓
+SQLite Database
 
-Join our community of developers creating universal apps.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## API Endpoints
+
+- `POST /api/session` — Δημιουργία νέου session
+- `POST /api/chat` — Αποστολή μηνύματος και λήψη απάντησης AI
+- `GET /api/history` — Ανάκτηση ιστορικού συνομιλιών
+- `DELETE /api/history` — Διαγραφή ιστορικού
