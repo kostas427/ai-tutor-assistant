@@ -1,62 +1,47 @@
 # CS Tutor AI - AI-Integrated Personal Assistant
 
-Μια mobile εφαρμογή εκπαιδευτικού βοηθού για φοιτητές πληροφορικής, με ενσωμάτωση Τεχνητής Νοημοσύνης μέσω OpenAI API.
+Μια Android mobile εφαρμογή εκπαιδευτικού βοηθού για φοιτητές πληροφορικής, με ενσωμάτωση Τεχνητής Νοημοσύνης μέσω OpenAI API.
 
 ## Τεχνολογική Στοίβα
 
-- **Frontend:** React Native + Expo
-- **Backend:** Node.js + Express
-- **Database:** SQLite (better-sqlite3)
+- **Frontend:** Android (Java)
+- **IDE:** Android Studio
 - **AI API:** OpenAI GPT-3.5-turbo
+- **HTTP Client:** OkHttp3
 
 ## Λειτουργικότητα
 
 - Chat με AI Tutor εξειδικευμένο σε θέματα πληροφορικής
-- Αποθήκευση ιστορικού συνομιλιών σε SQLite βάση δεδομένων
-- Οργάνωση συνομιλιών σε sessions με αυτόματη δημιουργία τίτλου
-- Accordion UI για εύκολη πλοήγηση στο ιστορικό
+- Απαντάει αποκλειστικά σε ερωτήσεις πληροφορικής
+- Εμφανίζει "Σκέφτομαι..." ενώ επεξεργάζεται την ερώτηση
+- Bubble style μηνύματα
+- Απαντάει πάντα στα ελληνικά
 
 ## Οδηγίες Εγκατάστασης
 
-### Προαπαιτούμενα
-- Node.js v18+
-- npm
+1. Κατέβασε το project
+2. Άνοιξέ το στο Android Studio
+3. Δημιούργησε το αρχείο `app/src/main/res/values/secrets.xml` με το δικό σου OpenAI API key:
 
-### Frontend (React Native)
-```bash
-npm install
-npx expo start --web
-```
-
-### Backend (Node.js)
-```bash
-cd backend
-npm install
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="openai_api_key">ΤΟ_API_KEY_ΣΟΥ_ΕΔΩ</string>
+</resources>
 ```
 
-Δημιούργησε αρχείο `.env` στον φάκελο backend:
-```
-OPENAI_API_KEY=your_api_key_here
-```
-
-```bash
-node server.js
-```
+4. Τρέξε την εφαρμογή σε emulator ή φυσικό κινητό
 
 ## Αρχιτεκτονική
 
-Mobile App (React Native)
+Android App (Java)
 ↓
-Node.js REST API (Express)
+OkHttp3 HTTP Client
 ↓
 OpenAI GPT-3.5-turbo API
 ↓
-SQLite Database
+Απάντηση στον χρήστη
 
+## Ασφάλεια
 
-## API Endpoints
-
-- `POST /api/session` — Δημιουργία νέου session
-- `POST /api/chat` — Αποστολή μηνύματος και λήψη απάντησης AI
-- `GET /api/history` — Ανάκτηση ιστορικού συνομιλιών
-- `DELETE /api/history` — Διαγραφή ιστορικού
+Το αρχείο `secrets.xml` δεν συμπεριλαμβάνεται στο αποθετήριο για λόγους ασφαλείας. Κάθε χρήστης πρέπει να δημιουργήσει το δικό του αρχείο με έγκυρο OpenAI API key.
